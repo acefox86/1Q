@@ -7,10 +7,7 @@
 <body>
   <h2>Happen If</h2>
 
-  <form action="/action_page.php">
-  <div class="imgcontainer">
-    <img src="img_avatar2.png" alt="Avatar" class="avatar">
-  </div>
+  <form action="/action_page.php" method="post">
 
   <div class="container">
     <label><b>Username</b></label>
@@ -28,6 +25,23 @@
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
 </form>
+<br>
+<br>
+
+<button type="submit" onclick="UserAction()">Search</button>
+
+<script>
+console.log("what's up?");
+
+function UserAction() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "https://api.coinmarketcap.com/v1/ticker/?limit=10", false);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send();
+    var response = JSON.parse(xhttp.responseText);
+    console.log(response);
+}
+</script>
 
 </body>
 </html>
